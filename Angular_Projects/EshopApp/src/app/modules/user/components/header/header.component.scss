@@ -1,0 +1,38 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .eshopLogo{
+         height:55px;
+         width:70px;
+         padding-right: 20px;
+    }
+.Mat-toolbar{
+    background-color: rgb(30, 35, 46);
+}
+
+.orders-css{
+    font-weight: bold;
+}
+.app-toolbar {
+    position: fixed;
+}
+.home-search{
+    width:40%;
+    margin-right: 20px;
+}
+.home-login-btn{
+    color:#ffff;
+}
+
+.z{
+    z-index: 9999;
+}
+.search-icon{
+    position: relative;
+    z-index: 10;
+    color:black;
+    right:55px;
+}
+.username{
+    padding-top:13px;
+}

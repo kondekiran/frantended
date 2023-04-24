@@ -1,0 +1,32 @@
+
+<div class="bg-container">
+    <div class="container pt-5 pb-5 ">
+        <div class="row">
+            <div class="col-2">
+                <mat-icon routerLink="/user/home" class="arrow">arrow_back</mat-icon>
+            </div>
+            
+            <div class="col-10 profile-card">
+                <h1 class="main-heading">User Profile</h1>
+            </div>
+            
+            <div class="col-5">
+                <img src="https://craftindika.com/wp-content/uploads/2021/12/eshop-logo-full.png"/>
+            </div>
+            <div class="col-7">
+                <div class="details">
+                    <h1 class="name">{{userData.firstName | uppercase}} {{userData.lastName | uppercase}}</h1>
+                    <p class="mail">{{userData.email}}</p>
+                    <p class="address">{{userData.address}}</p>
+                    <p class="contact">+91 {{userData.phone}}</p>
+                    <p class="date">{{userData.createdOn | date}}</p>
+                    <div class="btn-div">
+                        <button type="button" class="btn-card-orders" routerLink="../orders">YOUR ORDERS</button>
+                        <button type="button" class="btn-cart-card" routerLink="../cart">CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

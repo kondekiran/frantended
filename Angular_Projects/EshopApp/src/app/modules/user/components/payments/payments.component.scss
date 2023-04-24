@@ -1,0 +1,120 @@
+*{
+    box-sizing: content-box;
+}
+.main-heading{
+    text-align:center;
+    text-decoration: underline;
+    color:#20BD99;
+    font-size:20px;
+    font-weight: 600;
+    font-family: Assistant,Helvetica,Arial,sans-serif!important;
+    text-rendering: optimizeLegibility;
+}
+.default-address{
+    font-size: 12px;
+    font-weight: 700;
+    color:#535766;
+}
+.address-heading{
+    font-size:14px;
+    font-weight: 700;
+    color:#282c3f;
+    text-transform: capitalize;
+    word-break: break-all;
+}
+.doorno{
+    word-break: break-all;
+}
+.address-div{
+    border-style: solid;
+    border-width:0px;
+    padding: 19px;
+    border-radius: 6px;
+    margin-bottom:12px;
+}
+.mobile-no{
+    padding-bottom:9px;
+}
+.payment-div{
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 9px;
+}
+.payment-mode{
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 16px;
+}
+.recommended{
+    color:#ff3f6c;
+    text-align: center;
+    font-size:14px;
+    font-weight: bold;
+}
+.options{
+  border-style: solid;
+  border-color: #f4f4f5;
+  background-color:  #eaeaec;
+  width:40%;
+  border-width: 1px;
+  border-bottom-left-radius: 9px;
+}
+.items{
+    padding:20px;
+    font-weight: 700;
+}
+.list-options{
+    list-style-type:none;
+}
+.label{
+    margin-left: 10px;
+    font-weight: 500;
+    padding:16px;
+}
+.payment-systems{
+    padding:30px;
+}
+.price-details-div{
+    border-style: solid;
+    border-width: 0px;
+    margin-left: auto;
+    padding:25px;
+
+}
+.place-rderbtn{
+    width: 95%;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 2px;
+    border-width: 0px;
+    padding: 10px;
+    background-color: rgb(255, 63, 108);
+    color: rgb(255, 255, 255);
+   
+}
+.totalPrice{
+    font-weight: 700;
+    font-size: 15px;
+    padding-top: 16px;
+    color: #3e4152;
+    line-height: 16px;
+}
+.pricedetails{
+    font-size: 12px;
+    font-weight: 700;
+    margin: 24px 0 16px;
+    color: #535766;
+}
+
+
+
+
+
+
+
+
+
+
+
+

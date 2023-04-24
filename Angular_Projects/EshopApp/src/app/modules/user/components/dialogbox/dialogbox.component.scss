@@ -1,0 +1,68 @@
+.image-card{
+    height: 70vh;
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-styles{
+    height: 300px;
+    width:300px;
+}
+.star-icon{
+    color:gold;
+}
+.mrp-price{
+    text-decoration:line-through;
+}
+.form-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.select-box{
+    width:30%;
+}
+.addtocartbtn{
+    background-color:rgb(249, 237, 97);
+    border-radius: 9px;
+    padding:4px;
+    font-weight: bolder;
+    width:100%;
+    border-width: 2px;
+}
+.addtocartbtn2{
+    background-color:rgb(104, 132, 252);
+    border-radius: 9px;
+    padding:4px;
+    font-weight: bolder;
+    width:100%;
+    border-width: 2px;
+    margin-top:8px;
+}
+.dialogbox-container{
+    padding:8px;
+}
+.main-text{
+    text-align: center;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+.addtocartbtn:hover{
+    color:rgb(228, 51, 81);
+    background-color: aquamarine;
+}
+.addtocartbtn2:hover{
+    color:red;
+    background-color: chartreuse;
+}
+.cancel-img{
+    height:30px;
+    width:40px;
+}
+.cancel-btn{
+    text-align: end;
+    padding-top: 0px;
+    margin-top: 0px;
+}

@@ -1,0 +1,60 @@
+<div class="bg-container pt-3 pb-5 mt-5 ">
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-12">
+                <mat-icon routerLink="/user/home" class="arrow">arrow_back</mat-icon>
+            </div>
+           
+            <div class="col-8 cart-items">
+                <div class="main-headings">
+                    <h1 class="main-text">Shopping cart</h1>
+                    <h1 class="main-price-headings">Price</h1>
+                </div>
+                <hr />
+                <div class="all-products">
+                    <div *ngIf="SubTotalPrice==0" class="cart-empty">
+                        <img class="empty-cart-img" src="https://m.media-amazon.com/images/G/31/cart/empty/kettle-desaturated._CB424694257_.svg"/>
+                        <h1 class="cart-empty1">Your Cart is empty</h1></div>
+                    <div class="row " *ngFor="let product of allCartItems">
+                        <div class="cart-product">
+                            <div class=" col-4 image-card">
+                                <img class="cart-images" [src]="product.imageURL" />
+                            </div>
+
+                            <div class="col-4 productinfo-card">
+                                
+                                <h1>{{product.product}}</h1>
+                                <span > <i class="fa fa-star star-icon"></i> <i class="fa fa-star star-icon"></i>
+                                    <i class="fa fa-star star-icon"></i> <i class="fa fa-star star-icon"></i>
+                                    <i class="fa fa-star"></i></span>
+                                <p style="color:#007600">In stock</p>
+                                <p>MRP: {{product.unitPrice}}</p>
+                                <p>Eligible for Free Delivery</p>
+                                <span>Size: {{product.quantity}}</span> | <span>Discount: <i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>{{product.discount}}</span>
+                                <button class="delete-btn" (click)="deleteItem(product)"
+                                    (click)="getTotalpriceandlen()">Delete</button>
+                            </div>
+                            <div class="col-4 price-card">
+                                <h1 class="text"><i class="fa-sharp fa-solid fa-indian-rupee-sign">
+                                        {{product.unitPrice}}</i></h1>
+                            </div>
+                        </div>
+                        <hr />
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-4 ">
+                <div class="cart-total-card">
+                    <h1 class="title">CART ITEMS</h1>
+                    <p class="cart-item">Your order eligible for FREE Delivery.</p>
+                    <h1>SubTotal({{totalItems}} Items): <i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>
+                        {{SubTotalPrice + totalDiscount}}</h1>
+                    <button class="buynowbtn" [disabled]="SubTotalPrice==0" (click)="proceedToBuy()">Proceed to Buy</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

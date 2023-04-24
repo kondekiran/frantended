@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row dialogbox-container">
+        <div class="col-11">
+            <h1 class="main-text">PRODUCT INFORMATION</h1>
+        </div>
+        <div class="col-1">
+            <span class="cancel-btn" (click)="backtohome()"><img class="cancel-img" src='../../../../../assets/Images/cancel-image.png'/></span>
+        </div>
+        
+        <div class="col-6 image-card">
+            <img class="image-styles" [src]="productInfo.imageURL"/>
+        </div>
+        <div class="col-6 form-card">
+           <form>
+                <h1>{{productInfo.productName}}</h1>
+                <p><span>BRAND:</span> {{productInfo.manufacturer}}</p>
+                <span > <i class="fa fa-star star-icon"></i> <i class="fa fa-star star-icon"></i>
+                    <i class="fa fa-star star-icon"></i> <i class="fa fa-star star-icon"></i>
+                    <i class="fa fa-star"></i></span>
+                <hr/>
+                <h1 class="text-bolder"><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i> {{productInfo.unitPrice}}</h1>
+                <p >M.R.P.: <i class="fa-sharp fa-solid fa-indian-rupee-sign"></i> <span class="mrp-price">{{productInfo.unitPrice}}</span></p>
+                <p>Inclusive of all taxes</p>
+                <p>No EMI avilable</p>
+                <hr/>
+                <label for="type" class="p-3" style="font-weight: bolder;">Cart Item size </label>
+                    <select name="type" id="type" class="select-box" [(ngModel)]="cartSize">
+                        <option value=1 selected>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5</option>
+                    </select>
+                
+                    <button class="addtocartbtn" type="submit" (click)="addProductsToCart()">Add to Cart</button>
+                    <button class="addtocartbtn2" (click)="backtohome()">Go to Cart</button>
+                    
+                
+           </form>
+        </div>
+    </div>
+</div>
+

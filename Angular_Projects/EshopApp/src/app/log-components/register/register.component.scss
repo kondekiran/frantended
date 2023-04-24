@@ -1,0 +1,68 @@
+.bg-reg-container{
+    background-image: url("../../../assets/Images/registrationpage-image.jpg");
+    height: 120vh;
+    background-size: cover;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+.reg-form-container{
+    background-color: rgb(198, 229, 243);
+    margin-top: 25px;
+    height:100%;
+    width:65%;
+    border-radius: 9px;
+    padding:20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.names-div{
+    display: flex;
+}
+.firstname-div{
+    margin-right: 20px;
+}
+.select-box{
+    margin-left: 4px;
+    margin-top: 10px;
+    width:20%;
+}
+label{
+    font-size: small;
+    font-weight: bold;
+}
+.reg-btn-div{
+    margin-top:15px;
+    width:100%;
+}
+.reg-btn{
+    background-color: darkorange;
+    font-size: medium;
+    font-weight: bold;
+}
+.reg-para{
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bolder;
+    color:brown;
+}
+.btn-login{
+    border-width: 0px;
+    border-radius: 6px;
+    padding:2px;
+    background-color: cyan;
+    color:black;
+    font-weight:bold;
+}
+.err-msg{
+    color:red;
+    border-color: red;
+}
+input.ng-touched.ng-valid{
+    border:2px solid rgb(138, 229, 138);
+}
+input.ng-touched.ng-invalid{
+    border:1px solid red;
+}

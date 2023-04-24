@@ -1,0 +1,66 @@
+<div class=" container-fluid bg-reg-container">
+    <div class="row">
+        <div class="col-5">
+            <img src="https://craftindika.com/wp-content/uploads/2021/12/eshop-logo-full.png"/>
+        </div>
+        <div class="col-7 form-container">
+            <div class="reg-form-container">
+                <h1>Register</h1>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegForm()">
+                    <div class="names-div mb-1">
+                        <div class="firstname-div">
+                            <label for="firstName">First Name</label>
+                            <input placeholder="First Name" type="text" id="firstName" class="form-control w-auto" formControlName="firstName"/>
+                            <span class="err-msg" *ngIf="registerForm.get('firstName').touched && registerForm.get('firstName').hasError('required')">Enter First Name  </span>
+                        </div>
+                        <div>
+                            <label for="lastName">Last Name</label>
+                            <input type="text" placeholder="Last Name" id="lastName" class="form-control w-auto" formControlName="lastName"/>
+                            <span class="err-msg" *ngIf="registerForm.get('lastName').touched && registerForm.get('lastName').hasError('required')">Enter Last Name  </span>
+                        </div>
+                    </div>
+                    <div class="mb-1 mt-1">
+                        <label for="Email">Email</label>
+                        <input type="email" placeholder="Email" id="Email" class="form-control " formControlName="Email"/>
+                        <span class="err-msg" *ngIf="registerForm.get('Email').touched && registerForm.get('Email').hasError('required')">Enter Email id</span>
+                        <span class="err-msg" *ngIf="registerForm.get('Email').touched && registerForm.get('Email').hasError('email')">Enter valid Email Address</span>
+                    </div>
+                    
+                    <div class="mb-1">
+                        <label for="Password">Password</label>
+                        <input type="password" placeholder="Password" id="Password" class="form-control " formControlName="Password"/>
+                        <span class="err-msg" *ngIf="registerForm.get('Password').touched && registerForm.get('Password').hasError('required')">Password required && Minmum length is 4</span>
+                    </div>
+                    
+                    <div class="mb-1">
+                        <label for="phone">Phone Number</label>
+                        <input type="number" placeholder="Phone Number" id="phone" class="form-control" formControlName="phone"/>
+                        <span class="err-msg" *ngIf="registerForm.get('phone').touched && registerForm.get('phone').hasError('required')">Mobile number required</span>
+                        <span class="err-msg" *ngIf="registerForm.get('phone').touched && registerForm.get('phone').hasError('minLength')">Mobile number length should be 10 to 12</span>
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" placeholder="Address" class="form-control mt-1 mb-2" formControlName="address"/>
+                        <span class="err-msg" *ngIf="registerForm.get('address').touched && registerForm.get('address').hasError('required')">Address required</span>
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="type">Choose Type</label>
+                        <select name="type" id="type" class="select-box"  formControlName="type">
+                            <option value="user" selected>User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        <span class="err-msg" *ngIf="registerForm.get('type').touched && registerForm.get('type').hasError('required')">Type required</span>
+                    </div>
+
+                    <div class="reg-btn-div">
+                        <button type="submit" class="form-control reg-btn" [disabled]="!registerForm.valid">Register</button>
+                    </div>
+                    
+                </form>
+                <p class="reg-para">Already a member? <span><button class="btn-login" routerLink="../login">go and Login</button></span></p>
+            </div>
+        </div>
+    </div>
+</div>

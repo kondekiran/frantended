@@ -1,0 +1,91 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <mat-icon routerLink="../cart">arrow_back</mat-icon>
+        <h1 class="main-heading">PAYMENT</h1>
+        <hr/>
+        <div class="col-7">
+            <h1 class="default-address">DEFAULT ADDRESS</h1>
+            <div class="address-div shadow-lg">
+                <h1 class="address-heading">{{UserAddress.firstName}} {{UserAddress.lastName}}</h1>
+                <div class="mobile-no">
+                    <span>Mobile: </span>
+                    <span>{{UserAddress.phone}}</span>
+                </div>
+                <p>Email: {{UserAddress.email}}</p>
+                <p>Address: {{UserAddress.address}}</p>
+                <p>Cash on Delivery available</p>
+            </div>
+            <h1 class="payment-mode">Choose Payment Mode</h1>
+            <div class="payment-div shadow-lg">
+                <h1 class="recommended">Recommended Payment Options</h1>
+                <div class="d-flex">
+                    <div class="options">
+                       <hr/>
+                       <span class="items">Cash On Delivery</span>
+                       <hr/>
+                       <span class="items">Credit/Debit Card</span>
+                       <hr/>
+                       <span class="items">PhonePe/Google Pay/UPI</span>
+                       <hr/>
+                       <span class="items">Net Banking</span>
+                       <hr/>
+                       <span class="items">EMI</span>
+                       <hr/>
+                    </div>
+                    <div class="payment-systems">
+                            <ul class="list-options">
+                                <li class="pb-3"><input type="radio" id="cash" name="payment" checked/> <label class="label"
+                                        for="cash">Cash on Delivery</label></li>
+                                <li class="pb-3"><input type="radio" id="online" name="payment" /> <label class="label"
+                                        for="online">Online payments</label></li>
+                                <li class="pb-3"><input type="radio" id="cards" name="payment" /> <label class="label"
+                                        for="cards">Credit/Debit Cards</label></li>
+                            </ul>
+           
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 price-details-div shadow-lg">
+            <h1 class="pricedetails">PRICE DETAILS <span>({{cartItemsData.noOfItems}} Items)</span></h1>
+            <div class="d-flex justify-content-between"><P>Total MRP</P><span class="text-end">{{cartItemsData.totalPrice + cartItemsData.totaldiscount}}</span></div>
+            <div class="d-flex justify-content-between"><p>Discount on MRP</p><span style="color:#03a685;">- {{ cartItemsData.totaldiscount}}</span></div>
+            <div class="d-flex justify-content-between"><p>Convenience Fee</p><span style="color:#03a685;">FREE</span></div>
+            <div class="d-flex justify-content-between"><p>Delivery Fee</p><span style="color:#03a685;">FREE</span></div>
+            <hr/>
+            <div class="d-flex justify-content-between"><p class="totalPrice">Total Amount</p><span class="totalPrice">{{cartItemsData.totalPrice}}</span></div>
+            <div class="text-center">
+                <button class="place-rderbtn" (click)="placeOrder()">PLACE ORDER</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

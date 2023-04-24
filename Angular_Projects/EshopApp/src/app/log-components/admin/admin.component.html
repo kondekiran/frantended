@@ -1,0 +1,193 @@
+<div class="pb-3">
+  <mat-toolbar color="primary" class="Mat-toolbar app-toolbar z d-flex justify-content-between">
+    <img src="https://craftindika.com/wp-content/uploads/2021/12/eshop-logo-full.png" class="eshopLogo" alt="E-Shop">
+
+
+
+    <div>
+      <p class="username">Welcome {{AdminInformation.firstName}}</p>
+    </div>
+
+
+
+    <span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>power_settings_new</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </span>
+  </mat-toolbar>
+</div>
+
+<div class="container-fluid orders pt-5 pb-5">
+  <div class="row">
+    <div class="col-12 add-items">
+
+      <h1 class="text-center pt-3">ADD PRODUCTS</h1>
+      <form class="add-product-div" [formGroup]="AddProductsform" (ngSubmit)="InsertProduct()">
+        <div class="d-flex flex-column">
+          <div class="d-flex ">
+            <div class="d-flex flex-column m-1">
+              <label for="name">Product</label>
+              <input type="text" class="form-control-sm" id="name" formControlName="name"/>
+              <span class="err-msg" *ngIf="AddProductsform.get('name').touched && AddProductsform.get('name').hasError('required')">Enter Product Name  </span>
+            </div>
+            <div class="d-flex flex-column m-1">
+              <label for="Manufacturer">Manufacturer</label>
+              <input type="text" class="form-control-sm" id="Manufacturer" formControlName="Manufacturer"/>
+              <span class="err-msg" *ngIf="AddProductsform.get('Manufacturer').touched && AddProductsform.get('Manufacturer').hasError('required')">Enter Manufacturer Name  </span>
+            </div>
+            <div class="d-flex flex-column m-1">
+              <label for="price">Unit Price</label>
+              <input type="text" class="form-control-sm" id="price" formControlName="price"/>
+              <span class="err-msg" *ngIf="AddProductsform.get('price').touched && AddProductsform.get('price').hasError('required')">Enter Unit Price  </span>
+            </div>
+            <div class="d-flex flex-column m-1 w-100">
+              <label for="Discount">Discount</label>
+              <input type="text" class="form-control-sm" id="Discount" formControlName="Discount"/>
+              <span class="err-msg" *ngIf="AddProductsform.get('Discount').touched && AddProductsform.get('Discount').hasError('required')">Enter Discount Price  </span>
+            </div>
+            <div class="d-flex flex-column m-1 w-100">
+              <label for="Quantity">Quantity</label>
+              <input type="text" class="form-control-sm" id="Quantity" formControlName="Quantity"/>
+              <span class="err-msg" *ngIf="AddProductsform.get('Quantity').touched && AddProductsform.get('Quantity').hasError('required')">Enter Product Quantity  </span>
+            </div>
+          </div>
+          <div class="d-flex mt-3">
+            <div class="d-flex m-1 ">
+              <label for="ImageURL" class="m-2">ImageURL</label>
+              <input type="file" class="form-control-sm" id="ImageURL" formControlName="ImageURL"/>
+              <span class="err-msg" *ngIf="AddProductsform.get('ImageURL').touched && AddProductsform.get('ImageURL').hasError('required')">Insert Image  </span>
+            </div>
+            <mat-form-field appearance="fill" class="w-100 form-control-sm">
+              <mat-label>Category</mat-label>
+              <mat-select name="category" formControlName="category">
+                <mat-option *ngFor="let item of ListOfCategories" [value]="item.id">
+                  {{item.categoryName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <span class="err-msg" *ngIf="AddProductsform.get('category').touched && AddProductsform.get('category').hasError('required')">Please Select Category</span>
+          </div>
+          <button type="submit" class="add-product-btn" [disabled]="!AddProductsform.valid">ADD PRODUCT</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-12 mt-4">
+      <h1 class="text-center">ORDERS</h1>
+      <div>
+        <table mat-table [dataSource]="AllOrdersList" class="mat-elevation-z8">
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="orderId">
+            <th mat-header-cell *matHeaderCellDef style="color:#090909;"> OrderId </th>
+            <td mat-cell *matCellDef="let element"> {{element.orderId}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef style="color:#090909;"> UserName </th>
+            <td mat-cell *matCellDef="let element"> {{element.firstName}}</td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="productName">
+            <th mat-header-cell *matHeaderCellDef style="color:#090909;"> Product </th>
+            <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef style="color:#090909;"> Quantity </th>
+            <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="totalPrice">
+            <th mat-header-cell *matHeaderCellDef style="color:#090909;"> Total </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalPrice}} </td>
+          </ng-container>
+
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="orderStatus">
+            <th mat-header-cell *matHeaderCellDef style="color:#090909;"> Status </th>
+            <td mat-cell *matCellDef="let element">
+              <div [formGroup]="myGroup">{{element.orderStatus}}
+                <select name="status" formControlName="status">
+                  <option *ngFor="let item of OrdersStatus" [value]="item">{{item}}</option>
+                </select>
+              </div>
+            </td>
+
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="orderDate">
+            <th mat-header-cell *matHeaderCellDef style="color:#090909;"> OrderDate </th>
+            <td mat-cell *matCellDef="let element"> {{element.orderDate | date }} </td>
+          </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Update">
+            <th mat-header-cell *matHeaderCellDef style="color:#090909;"> Update Status</th>
+            <td mat-cell *matCellDef="let element"> <button class="btn-submit" type="button"
+                (click)="upadateStatus(element)">Update</button> </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsList" class="header-row"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsList;"></tr>
+
+        </table>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+<div class="container-fluid  bg-dark pt-4">
+  <footer>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><img src="https://craftindika.com/wp-content/uploads/2021/12/eshop-logo-full.png"
+          class="eshopLogo2" alt="E-Shop"></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2  footer-text" routerLinkActive="active"
+          routerLink="./about">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 footer-text">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 footer-text">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 footer-text">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 footer-text" routerLinkActive="active"
+          routerLink="./about">About</a></li>
+    </ul>
+    <div class="aboutus-section">
+      <div>
+        <h2 class="footer-heading">Get to know us</h2>
+        <p class="about-us-text">About Us</p>
+        <p class="about-us-text">Careers</p>
+      </div>
+      <div>
+        <h2 class="footer-heading">Connect with us</h2>
+        <p class="about-us-text">Facebook</p>
+        <p class="about-us-text">Twitter</p>
+        <p class="about-us-text">Instagram<mat-icon>instagram</mat-icon></p>
+      </div>
+      <div>
+        <h2 class="footer-heading">Let Us Help You</h2>
+        <p class="about-us-text">COVID-19 and Eshop</p>
+        <p class="about-us-text">Your Account</p>
+        <p class="about-us-text">100% Purchase Protection</p>
+        <p class="about-us-text">Help</p>
+      </div>
+
+    </div>
+    <p class="text-center footer-text">&copy; 2023 Company, Inc</p>
+  </footer>
+</div>
